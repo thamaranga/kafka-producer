@@ -14,8 +14,8 @@ import java.util.UUID;
 @RestController
 public class ProducerController {
 
-    @Value("${test.topic.name}")
-    private String testTopicName;
+    /*@Value("${test.topic.name}")
+    private String testTopicName;*/
 
     @Value("${payment.topic.name}")
     private String paymentTopicName;
@@ -23,10 +23,10 @@ public class ProducerController {
     @Autowired
     private KafkaTemplate<String, Object> kafkaTemplate;
 
-    @GetMapping("/publish/{message}")
+   /* @GetMapping("/publish/{message}")
     public void sendMessage(@PathVariable String message) {
         kafkaTemplate.send(testTopicName, message);
-    }
+    }*/
 
     @PostMapping("/payment")
     public String doPayment(@RequestBody ProducerRequest<PaymentRequest> paytmRequest) {
